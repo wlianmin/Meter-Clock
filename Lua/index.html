@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />  
+	<title>MyClock 设置</title>
+</head>
+<body>
+	<h1 align="center">MyClock 设置</h1>
+	
+	<table align="center" style="width:300px" >
+		<tr align="center">
+			<td>
+				<strong>连接到网络</strong>
+			</td>
+		</tr>
+		<tr align="center">
+			<td ><hr/></td>
+		</tr>
+		<tr align="center">
+			<td>
+				<form >
+				<p>SSID: <input type="text" name="SSID" id="SSID" /></p>
+				<p>密码: <input type="text" name="PWD" id="PWD" /></p>
+				<p><input type="reset" value="清空">  <input type="button" value="保存" onclick="check()" /></p>
+				</form>
+			</td>
+		</tr>
+		<tr>
+			<td/>
+		</tr>
+		<tr>
+			<td/>
+		</tr>
+		<tr>
+			<td align="center">
+				<strong>配置密码</strong>
+			</td>
+		</tr>
+		<tr align="center">
+			<td ><hr/></td>
+		</tr>
+		<tr align="center">
+			<td>
+				<form >
+				<p>密码: <input type="text" name="PWD" id="MngPWD" /></p>
+				<p><input type="reset" value="清空">  <input type="button" value="保存" onclick="chgpwd()" /></p>
+				</form>
+			</td>
+		</tr>
+</table>
+
+
+</body>
+<script type="text/javascript">
+	function check()
+	{
+		var ssid=document.getElementById("SSID")
+		var pwd=document.getElementById("PWD")
+		if(ssid.value=="")
+		{
+			alert("SSID 为空")
+			return
+		}
+
+		if(pwd.value!="" & pwd.value.length<8)
+		{
+			alert("密码必须大于8位")
+			return
+		}
+
+		self.location=("\confirm?ssid="+ssid.value+"&pwd="+pwd.value)
+	}
+	
+	function chgpwd()
+	{
+		var pwd=document.getElementById("MngPWD")
+
+		if(pwd.value!="" & pwd.value.length<8)
+		{
+			alert("密码必须大于8位")
+			return
+		}
+
+		self.location=("\confirm?mngpwd="+pwd.value)
+	}
+</script>
+
+
+</html>
